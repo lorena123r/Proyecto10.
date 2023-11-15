@@ -1,0 +1,77 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.logo{
+    max-width: 10rem;/*Ancho*/
+    margin-left: 4px;/*Margen a la izquierda*/
+}
+
+header{
+    display: flex;/*Uno al lado del otro*/
+    align-items: center;/*Alineación al centro*/
+    justify-content: space-between; /*Lista a la derecha*/
+    padding: 1rem;
+    background-color:mediumorchid;
+}
+
+.listaMenu{
+    list-style-type: none;/*Quitar los puntos de la lista*/
+    display: flex;/*Uno al lado del otro*/
+    gap:1rem;/*Separación*/
+}
+
+.listaMenu li a{
+    text-decoration: none;/*Quitar subrayado*/
+    color:aliceblue;/*Color del enlace y fuente*/
+    font-size: 20px;/*Tamaño de la letra*/
+    margin-right: 12px;/*Margen*/
+}
+
+.abrirMenu, .cerrarMenu{
+    display: none;/*No se debe ver en la version web, solo movil*/
+}
+
+@media screen and (max-width: 500px) { /*Se va activar cuando el screen (pantalla) llegue a 500px, y se va ver lo relacionado a continuación, movil.*/
+    .abrirMenu, .cerrarMenu{
+        display: block;
+        border: none;
+        font-size: 2.0rem;
+        cursor: pointer;
+    }
+
+    .cerrarMenu, .abrirMenu{
+        background-color: transparent;
+        color: black;
+    }
+    .menuPrincipal {
+        opacity: 0;
+        visibility: hidden;/*Debe permanecer escondida, solamente debe aparecer cuando le de click en abrir*/
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        gap: 1.5rem;
+        position: absolute;
+        top:0;
+        right: 0;
+        bottom: 0;
+        background-color:darksalmon;
+        padding: 2rem;
+        box-shadow:0 0 0 100vmax rgba(0, 0, 0, 0.35);/*Unidad de porcentaje relativa, al menu principal le aplique esta sombra*/
+    }
+
+    .menuPrincipal.visible{ /*Clase temporal*/
+        opacity: 1;/*Transparencia de un elemento*/
+        visibility: visible;/*Clase visible*/
+    }
+    .listaMenu {
+        flex-direction: column; /*Dirección en columnas*/
+        align-items: end;/*Final y a la derecha*/
+    }
+    .listaMenu li a {
+        color: aliceblue;
+    }    
+}
